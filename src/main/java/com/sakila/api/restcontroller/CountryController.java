@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sakila.api.dto.CountryDto;
@@ -25,6 +23,11 @@ public class CountryController {
    // 필드 주입 대신 생성자 주입을 사용
    public CountryController(CountryService countryService) {
       this.countryService = countryService;
+   }
+   
+   @GetMapping("/country/{countryId}")
+   public ResponseEntity<CountryEntity> countryOne(@PathVariable int countryId){
+	   return new ResponseEntity<CountryEntity>(countryService.findById(countryId), HttpStatus.OK);
    }
    
    // 삭제

@@ -21,8 +21,8 @@ import lombok.Data;
 public class CustomerEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "coustomer_id")
-	private int coustomerId;
+	@Column(name = "customer_id")
+	private int customerId;
 	
 	@Column(name = "first_name")
 	private String firstName;
@@ -36,19 +36,15 @@ public class CustomerEntity {
 	@Column(name = "active")
 	private int active;
 	
-	@Column(name = "create_date")
+	@Column(name = "create_date", nullable = true)
 	private Timestamp createDate;
 	
-	@Column(name = "last_update")
+	@Column(name = "last_update", nullable = true)
 	private Timestamp lastUpdate;
 	
-   	@Column(name = "store_id") 
-	private int storeId; 
-    /*
-    @ManyToOne 
-	@JoinColumn(name = "store_id") // 이후에 단방향(customer에서 store)설정으로 수정이 필요
-	private StoreEntity storeEntity;
-    */
+	@ManyToOne
+   	@JoinColumn(name = "store_id") 
+	private StoreEntity storeEntity; 
 
 	@ManyToOne 
 	@JoinColumn(name = "address_id") // 단방향(customer에서 address)

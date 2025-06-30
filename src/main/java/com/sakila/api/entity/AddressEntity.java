@@ -38,7 +38,7 @@ public class AddressEntity {
 	
 	@Column(name = "phone")
 	private String phone;
-	
+
 	@Column(name = "last_update", nullable=true)
 	private Timestamp lastUpdate;
 	

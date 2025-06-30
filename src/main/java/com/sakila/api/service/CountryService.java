@@ -2,7 +2,6 @@ package com.sakila.api.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,6 +41,7 @@ public class CountryService {
 	   updateCountryEntity.setCountry(countryDto.getCountry());
    }
 	
+   //country 입력
 	public void save(CountryDto countryDto) {
 		//DTO -> Entity 서비스쪽에 입력
 	   CountryEntity saveCountryEntity = new CountryEntity();
@@ -49,6 +49,12 @@ public class CountryService {
 	   countryRepository.save(saveCountryEntity);
 	}
    
+	// 한 행 조회
+	public CountryEntity findById(int countryId) {
+		return countryRepository.findById(countryId).orElse(null);
+	}
+	
+	//전체조회
    public List<CountryEntity> findAll() {
       return countryRepository.findAll();
    }
