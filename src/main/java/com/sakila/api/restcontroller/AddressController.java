@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,6 +17,7 @@ import com.sakila.api.dto.AddressDto;
 import com.sakila.api.entity.AddressEntity;
 import com.sakila.api.service.AddressService;
 
+@CrossOrigin
 @RestController
 public class AddressController {
 	   private AddressService addressService;

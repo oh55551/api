@@ -46,5 +46,7 @@ public class StoreService {
     public StoreEntity findById(int storeId) {
         return storeRepository.findById(storeId).orElse(null);
     }
+    
+    
 }
 

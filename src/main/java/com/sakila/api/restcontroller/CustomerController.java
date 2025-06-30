@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sakila.api.entity.CustomerEntity;
 import com.sakila.api.service.CustomerService;
 
+@CrossOrigin
 @RestController
 public class CustomerController {
     private final CustomerService customerService;
@@ -52,6 +54,5 @@ public class CustomerController {
         CustomerEntity customer = customerService.findById(customerId);
         return customer != null ? new ResponseEntity<>(customer, HttpStatus.OK)
                                  : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+    }                                                      
 }
-
